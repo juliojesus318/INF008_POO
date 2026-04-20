@@ -97,6 +97,14 @@ class AdressBook
         }
         return null;
     }
+
+   public void getall()
+    {
+        for (int i = 0; i < count; i++)
+    {
+        contacts[i].displayInfo();
+    }
+}
 }
 
 public class Contact
@@ -120,5 +128,51 @@ public class Contact
         );
 
         client.displayInfo();
+     AdressBook contato1 = new AdressBook(
+            "Rafael",
+            "71 9 4002-8922",
+            "rafael@gmail.com"
+        );
+
+        AdressBook contato2 = new AdressBook(
+            "Julinho",
+            "71 9 7546-3319",
+            "julinho@gmail.com"
+        );
+
+        AdressBook contato3 = new AdressBook(
+            "Maria",
+            "71 9 9999-1111",
+            "maria@gmail.com"
+        );
+
+        client.addcontacts(contato1);
+        client.addcontacts(contato2);
+        client.addcontacts(contato3);
+
+        System.out.println("\nall");
+        client.getall();
+
+        System.out.println("\nsearch");
+        AdressBook encontrado = client.search("Julinho");
+
+        if (encontrado != null)
+        {
+            encontrado.displayInfo();
+        }
+        else
+        {
+            System.out.println("not found.");
+        }
+          encontrado = client.search("jordaniel");
+
+        if (encontrado != null)
+        {
+            encontrado.displayInfo();
+        }
+        else
+        {
+            System.out.println("not found.");
+        }
     }
 }
